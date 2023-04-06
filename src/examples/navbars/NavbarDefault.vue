@@ -1019,7 +1019,7 @@ watch(
                         :to="{ name: 'espace-fournisseur' }"
                         class="dropdown-item border-radius-md"
                       >
-                        <span> Espace Fournisseur</span>
+                        <span>Espace Fournisseur</span>
                       </RouterLink>
                       <RouterLink
                         :to="{ name: 'espace-partenaire' }"
@@ -1034,7 +1034,7 @@ watch(
                         <span>Recrutement</span>
                       </RouterLink>
                       <RouterLink
-                        :to="{ name: 'author' }"
+                        :to="{ name: 'admin' }"
                         class="dropdown-item border-radius-md"
                       >
                         <span>Administration</span>
@@ -1061,19 +1061,19 @@ watch(
                   Les Espace client
                 </div>
                 <RouterLink
-                        :to="{ name: 'signin-basic' }"
+                        :to="{ name: 'espace-travailleur' }"
                         class="dropdown-item border-radius-md"
                       >
                         <span>Espace Salarie ou Indépendant</span>
                       </RouterLink>
                       <RouterLink
-                        :to="{ name: 'signin-basic' }"
+                        :to="{ name: 'espace-travailleur' }"
                         class="dropdown-item border-radius-md"
                       >
                         <span> Espace Fournisseur</span>
                       </RouterLink>
                       <RouterLink
-                        :to="{ name: 'signin-basic' }"
+                        :to="{ name: 'espace-travailleur' }"
                         class="dropdown-item border-radius-md"
                       >
                         <span>Espace Partenaire</span>
@@ -1084,12 +1084,12 @@ watch(
                       >
                         <span>Recrutement</span>
                       </RouterLink>
-                      <RouterLink
+                      <!-- <RouterLink
                         :to="{ name: 'author' }"
                         class="dropdown-item border-radius-md"
                       >
                         <span>Administration</span>
-                      </RouterLink>
+                      </RouterLink> -->
                 <div
                   class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0 mt-3"
                 >

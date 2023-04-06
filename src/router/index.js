@@ -32,6 +32,9 @@ import ElProgressBars from "../layouts/sections/elements/progress-bars/ProgressB
 import ElToggles from "../layouts/sections/elements/toggles/TogglesView.vue";
 import ElTypography from "../layouts/sections/elements/typography/TypographyView.vue";
 
+import Admin from "../views/Administration/Admin.vue";
+
+
 // import Dashboard from "../views/admin/admin_dashboard.vue";
 
 // import produits from "../views/admin/admin_products.vue";
@@ -105,6 +108,11 @@ const router = createRouter({
       component: FournisseurView,
     },
 
+    {
+      path: "/pages/admin",
+      name: "admin",
+      component: Admin,
+    },
 
     // {
     //   path: "/sections/page-sections/page-headers",

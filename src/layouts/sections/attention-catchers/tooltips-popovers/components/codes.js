@@ -7,7 +7,7 @@ import MaterialButton from "@/components/MaterialButton.vue";
 import setPopover from "@/assets/js/popover";
 
 // store
-import { useAppStore } from "@/stores";
+import { useAppStore } from "@/stores/modules/bootstrap/bootstrap_";
 const store = useAppStore();
 
 // hook
@@ -75,7 +75,7 @@ import MaterialButton from "@/components/MaterialButton.vue";
 import setTooltip from "@/assets/js/tooltip";
 
 // store
-import { useAppStore } from "@/stores";
+import { useAppStore } from "@/stores/modules/bootstrap/bootstrap_";
 const store = useAppStore();
 
 // hook

@@ -14,7 +14,7 @@ import team4 from "@/assets/img/team-4.jpg";
 import setTooltip from "@/assets/js/tooltip";
 
 // store
-import { useAppStore } from "@/stores";
+import { useAppStore } from "@/stores/modules/bootstrap/bootstrap_";
 const store = useAppStore();
 
 // hook

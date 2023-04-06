@@ -503,3 +503,9 @@ import image from "@/assets/img/city-profile.jpg";
   </div>
   <Footer />
 </template>
+
+
+
+<!-- 
+import { useAppStore } from "@/stores/modules/bootstrap/bootstrap_";
+ -->

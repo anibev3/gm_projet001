@@ -1,7 +1,9 @@
-import { defineStore } from "pinia";
-import bootstrap from "bootstrap/dist/js/bootstrap.min.js";
-export const useAppStore = defineStore("storeId", {
-  state: () => ({
-    bootstrap,
-  }),
-});
+import { createPinia } from 'pinia'
+import { useAppStore } from './modules/bootstrap/bootstrap_'
+// import { useAuthenticationStore } from './modules/authentication'
+const app = createPinia()
+
+app.use(useAppStore);
+// app.use(useAuthenticationStore);
+
+export default app

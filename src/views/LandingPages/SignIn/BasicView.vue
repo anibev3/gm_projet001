@@ -1,5 +1,36 @@
-<script setup>
+<!-- <template>
+  <div>
+    <h1>Créer un travailleur</h1>
+    <form @submit.prevent="createTravailleur">
+      <div>
+        <label>Nom et prénom</label>
+        <input type="text" v-model="nomPrenom" />
+      </div>
+      <div>
+        <label>Date de naissance</label>
+        <input type="date" v-model="dateNaissance" />
+      </div>
+      <div>
+        <label>Fiche de paie</label>
+        <input type="file" v-on:change="handleFichePaieChange" />
+      </div>
+      <button type="submit">Créer</button>
+    </form>
+  </div>
+</template> -->
+
+<script>
+import { defineComponent, ref } from 'vue'
+// import { useTravailleurStore } from '@/store/modules/travailleur'
+// import { usePinia } from 'pinia'
+// import axios from 'axios'
+
+
+
+
 import { onMounted } from "vue";
+// import { useAuthenticationStore } from "@/store/modules/authentication";
+// import { ref } from "vue";
 
 // example components
 import DefaultNavbar from "@/examples/navbars/NavbarDefault.vue";
@@ -12,10 +43,63 @@ import MaterialButton from "@/components/MaterialButton.vue";
 
 // material-input
 import setMaterialInput from "@/assets/js/material-input";
-onMounted(() => {
-  setMaterialInput();
-});
+
+
+
+export default defineComponent({
+  setup() {
+
+    onMounted(() => {
+      setMaterialInput();
+    });
+    // const pinia = usePinia()
+    // const travailleurStore = useTravailleurStore(pinia)
+
+    const nomPrenom = ref('')
+    const dateNaissance = ref('')
+    const fichePaie = ref(null)
+
+    const handleFichePaieChange = (event) => {
+      fichePaie.value = event.target.files[0]
+    }
+
+    const createTravailleur = async () => {
+      const formData = new FormData()
+      formData.append('nom_prenom', nomPrenom.value)
+      formData.append('date_naissance', dateNaissance.value)
+      formData.append('fiche_paie', fichePaie.value)
+      console.log(formData);
+
+      try {
+      console.log(nomPrenom.value);
+      console.log(dateNaissance.value);
+      console.log(fichePaie.value);
+        console.log(formData);
+        // const response = await axios.post('/api/travailleurs', formData, {
+        //   headers: {
+        //     'Content-Type': 'multipart/form-data'
+        //   }
+        // })
+        // travailleurStore.addTravailleur(response.data)
+        // Rediriger l'utilisateur vers une autre page ou afficher un message de succès
+      } catch (error) {
+        console.error(error)
+        // Afficher un message d'erreur
+      }
+    }
+
+    return {
+      nomPrenom,
+      dateNaissance,
+      fichePaie,
+      handleFichePaieChange,
+      createTravailleur,
+      MaterialButton
+    }
+  }
+})
 </script>
+
 <template>
   <DefaultNavbar transparent />
   <Header>
@@ -64,36 +148,18 @@ onMounted(() => {
                 </div>
               </div>
               <div class="card-body">
-                <form role="form" class="text-start">
-                  <MaterialInput
-                    id="email"
-                    class="input-group-outline my-3"
-                    :label="{ text: 'Email', class: 'form-label' }"
-                    type="email"
-                  />
-                  <MaterialInput
-                    id="password"
-                    class="input-group-outline mb-3"
-                    :label="{ text: 'Mot de passe', class: 'form-label' }"
-                    type="password"
-                  />
-                  <MaterialSwitch
-                    class="d-flex align-items-center mb-3"
-                    id="rememberMe"
-                    labelClass="mb-0 ms-3"
-                    checked
-                    >Rester connecté</MaterialSwitch
-                  >
+                <form role="form" class="text-start" >
 
-                  <div class="text-center">
-                    <MaterialButton
-                      class="my-4 mb-2"
-                      variant="gradient"
-                      color="success"
-                      fullWidth
-                      >me connecter</MaterialButton
-                    >
+                  <div class="input-group flex-nowrap">
+  <span class="input-group-text" id="addon-wrapping">@</span>
+  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+
+                  <div class="text-center" >
+
                   </div>
+
+
                   <p class="mt-4 text-sm text-center">
                     Pas encore de compte ?
                     <a
@@ -169,5 +235,6 @@ onMounted(() => {
         </div>
       </footer>
     </div>
+
   </Header>
 </template>

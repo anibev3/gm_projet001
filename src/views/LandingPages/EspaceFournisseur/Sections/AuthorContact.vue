@@ -12,7 +12,8 @@ import bgContact from "@/assets/img/examples/blog2.jpg";
 import setTooltip from "@/assets/js/tooltip";
 
 // store
-import { useAppStore } from "@/stores";
+import { useAppStore } from "@/stores/modules/bootstrap/bootstrap_";
+
 const store = useAppStore();
 
 onMounted(() => {

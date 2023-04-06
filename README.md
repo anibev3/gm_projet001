@@ -205,3 +205,111 @@ Dribbble: <https://dribbble.com/creativetim>
 Google+: <https://plus.google.com/+CreativetimPage>
 
 Instagram: <https://instagram.com/creativetimofficial> -->
+
+
+
+
+
+
+
+
+
+
+
+aide moi a gerer la connexion utilisateur Vue.js en utilisant la Composition API et pinia,  ainsi que des api utilisant axios
+
+Bien sûr, voici un exemple d'implémentation de la gestion de connexion utilisateur en utilisant la Composition API et Pinia.
+
+Tout d'abord, il faut créer le store Pinia pour gérer l'authentification :
+
+javascript
+<script>
+import { defineStore } from 'pinia';
+
+export const useAuthStore = defineStore({
+  id: 'auth',
+  state: () => ({
+    token: null,
+    user: null,
+  }),
+  actions: {
+    login(token, user) {
+      this.token = token;
+      this.user = user;
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(user));
+    },
+    logout() {
+      this.token = null;
+      this.user = null;
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+    },
+    loadFromLocalStorage() {
+      const token = localStorage.getItem('token');
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (token && user) {
+        this.token = token;
+        this.user = user;
+      }
+    },
+  },
+});
+</script>
+
+Ce store contient trois propriétés : token qui stocke le jeton d'authentification, user qui stocke les informations de l'utilisateur connecté, et des actions pour se connecter, se déconnecter et charger les informations d'authentification à partir du stockage local.
+
+Ensuite, dans notre composant, nous pouvons utiliser ce store pour gérer l'authentification. Voici un exemple de composant qui utilise la Composition API et Pinia pour gérer l'authentification :
+
+javascript
+
+<template>
+  <div>
+    <form @submit.prevent="handleSubmit">
+      <label>
+        Email:
+        <input type="email" v-model="email" required>
+      </label>
+      <label>
+        Mot de passe:
+        <input type="password" v-model="password" required>
+      </label>
+      <button type="submit">Connexion</button>
+    </form>
+  </div>
+</template>
+
+<script>
+import { ref } from 'vue';
+import { useAuthStore } from '@/store/auth';
+
+export default {
+  setup() {
+    const email = ref('');
+    const password = ref('');
+    const authStore = useAuthStore();
+
+    const handleSubmit = async () => {
+      try {
+        const response = await axios.post('/api/login', { email: email.value, password: password.value });
+        const { token, user } = response.data;
+        authStore.login(token, user);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    return {
+      email,
+      password,
+      handleSubmit,
+    };
+  },
+};
+</script>
+
+Dans ce composant, nous utilisons useAuthStore pour récupérer le store d'authentification. Nous avons également défini des références pour stocker les valeurs de l'e-mail et du mot de passe entrés par l'utilisateur, et une fonction handleSubmit qui envoie une requête POST à notre API de connexion et stocke le jeton et les informations de l'utilisateur dans le store d'authentification.
+
+Notez que pour utiliser axios, nous devons l'importer et l'initialiser dans notre projet Vue.js.
+
+J'espère que cela vous aidera à mettre en place la gestion de connexion utilisateur en utilisant la Composition API et Pinia.

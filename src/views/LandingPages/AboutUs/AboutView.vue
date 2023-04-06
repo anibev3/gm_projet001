@@ -5,6 +5,7 @@ import { onMounted, onUnmounted } from "vue";
 import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
 import DefaultFooter from "../../../examples/footers/FooterDefault.vue";
 import Profile from "../Author/Sections/AuthorProfile.vue";
+import DefaultInfoCard from "./Sections/DefaultInfoCard.vue";
 
 //image
 import bg0 from "@/assets/img/bg9.jpg";
@@ -67,9 +68,14 @@ onUnmounted(() => {
               <h1>PARTNERS</h1>
               <h1>TÉLÉCOMMUNICATION</h1>
             </div>
-            <p class="lead mb-4 text-white opacity-8">
-              G.M Partners / G.M Télécommunication Netowrk est le partenaire de choix des petites et moyennes entreprises pour les solutions d'hébergement Web et les infrastructures Cloud.
-            </p>
+         
+            <DefaultInfoCard
+              color="info"
+              title=""
+              description="G.M Partners / G.M Télécommunication Netowrk est le partenaire de choix des petites et moyennes entreprises pour les solutions d'hébergement Web et les infrastructures Cloud.
+
+"
+            />
             <button type="submit" class="btn bg-white text-dark">
               Voir nos services
             </button>
@@ -108,26 +114,36 @@ onUnmounted(() => {
         <div class="row">
           <!-- <div class="col-lg-6 ms-lg-5"> -->
             <h4 class="text-white">Qui nous sommes :</h4>
-            <h1 class="text-white">G.M Partners / <br> G.M Télécommunication Netowrk</h1>
-            <p class="lead text-white opacity-8">
-              G.M Partners / G.M Télécommunication Netowrk est le partenaire de choix des petites et moyennes entreprises pour les solutions d'hébergement Web et les infrastructures Cloud. Nous offrons non seulement un portefeuille de produits et de services-clés qui permettent aux entreprises de démarrer et de développer leur activité sur Internet, mais aussi notre expertise en matière d'infrastructure (IaaS). Leader de l'hébergement en Europe, nous gérons plus de 34 millions de contrats et hébergeons plus de 44 millions de noms de domaine au sein de data centers à travers le monde.
-            </p>
-            <p class="lead text-white opacity-8">
-              Nous aidons les créateurs d'entreprise à effectuer leurs premiers pas sur Internet, nous accompagnons les entrepreneurs qui le souhaitent dans leur désir de croissance et soutenons les grandes entreprises et leurs partenaires pour atteindre leurs objectifs en leur fournissant les moyens de leur ambition. Qu'il s'agisse de sécuriser un nom de domaine, de créer un premier site vitrine ou un site Web plus élaboré, de transférer son back-office dans le Cloud ou de déployer des clusters de conteneur, notre portefeuille de produits vous offre les meilleurs applications, serveurs et services.
-            </p>
-            <p class="lead text-white opacity-8">
-              Fiabilité et sécurité font partie intégrante de nos produits et de nos services. Notre réseau de data centres, construit par nos soins, garantit performance maximale et géo-redondance. Chez G.M PARTNERS / G.M Télécommunication Network dont la maison-mère est basée en Royaume-uni, nous mettons un point d'honneur à perpétuer une tradition de technologie de pointe, de sécurité des données, de protection des données personnelles et de respect de la vie privée.
-            </p>
-            <p class="lead text-white opacity-8">
-              Nos clients sont au centre de nos préoccupations. C'est pourquoi nous mettons à leur disposition non seulement des équipes de support locales, mais aussi un service sur mesure et unique dans le monde de l'hébergement Web : un conseiller personnel, interlocuteur privilégié et dédié, à même de donner des conseils d'expert, adaptés aux besoins de nos clients.
-            </p>
-            <!-- <a
-              href=""
+            <DefaultInfoCard
+              color="info"
+              title="G.M Partners / G.M Télécommunication Netowrk"
+              description="G.M Partners / G.M Télécommunication Netowrk est le partenaire de choix des petites et moyennes entreprises pour les solutions d'hébergement Web et les infrastructures Cloud. Nous offrons non seulement un portefeuille de produits et de services-clés qui permettent aux entreprises de démarrer et de développer leur activité sur Internet, mais aussi notre expertise en matière d'infrastructure (IaaS). Leader de l'hébergement en Europe, nous gérons plus de 34 millions de contrats et hébergeons plus de 44 millions de noms de domaine au sein de data centers à travers le monde."
+            />
+            <DefaultInfoCard
+              color="info"
+              title=""
+              description=" Nous aidons les créateurs d'entreprise à effectuer leurs premiers pas sur Internet, nous accompagnons les entrepreneurs qui le souhaitent dans leur désir de croissance et soutenons les grandes entreprises et leurs partenaires pour atteindre leurs objectifs en leur fournissant les moyens de leur ambition. Qu'il s'agisse de sécuriser un nom de domaine, de créer un premier site vitrine ou un site Web plus élaboré, de transférer son back-office dans le Cloud ou de déployer des clusters de conteneur, notre portefeuille de produits vous offre les meilleurs applications, serveurs et services.
+"
+            />
+            <DefaultInfoCard
+              color="info"
+              title=""
+              description=" Fiabilité et sécurité font partie intégrante de nos produits et de nos services. Notre réseau de data centres, construit par nos soins, garantit performance maximale et géo-redondance. Chez G.M PARTNERS / G.M Télécommunication Network dont la maison-mère est basée en Royaume-uni, nous mettons un point d'honneur à perpétuer une tradition de technologie de pointe, de sécurité des données, de protection des données personnelles et de respect de la vie privée.
+"
+            />
+            <DefaultInfoCard
+              color="info"
+              title=""
+              description="Nos clients sont au centre de nos préoccupations. C'est pourquoi nous mettons à leur disposition non seulement des équipes de support locales, mais aussi un service sur mesure et unique dans le monde de l'hébergement Web : un conseiller personnel, interlocuteur privilégié et dédié, à même de donner des conseils d'expert, adaptés aux besoins de nos clients.
+"
+            />
+            <a
+              href="#"
               class="text-white icon-move-right"
              >
-              Read docs
+              Nos établissements
               <i class="fas fa-arrow-right text-sm ms-1"></i>
-            </a> -->
+            </a>
           <!-- </div> -->
         </div>
       </div>
